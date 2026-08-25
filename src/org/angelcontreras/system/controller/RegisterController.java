@@ -15,7 +15,7 @@ import org.angelcontreras.system.utils.ViewFactory;
  *
  * @author informatica
  */
-public class RegisterController implements Initializable{
+    public class RegisterController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
