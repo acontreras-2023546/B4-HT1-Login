@@ -11,9 +11,8 @@ create table Users (
     id_user varchar (36) not null,
     constraint pk_users primary key(id_user)
 );
-
-
 #uso de constraint para validar estructura e informacion
+
 #CRUD
 #CREAR
 Delimiter $$
@@ -27,4 +26,7 @@ Delimiter $$
         values(name_p, lastname_p, email_p, user_p, password_p, uuid());
     end$$
 delimiter ; 
+ 
+call sp_create_users ("a", "a", "a@", "a", "a12345");
 
+select * from Users;
