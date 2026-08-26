@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/config/Enviroment.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/repository/UserInterface.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/model/Users.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/utils/ViewFactory.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/config/ConexionDB.java</file>
             <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/config/ddl.sql</file>
             <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/repository/UserRepository.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/config/ConexionDB.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/resources/styles/RegisterUser.css</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/controller/LoginController.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/repository/UserInterface.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/utils/Validations.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/controller/RegisterController.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/config/Enviroment.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/2023546-B4/S2/auditoria-usuarios-productos/src/org/angelcontreras/system/model/Users.java</file>
         </group>
     </open-files>
 </project-private>

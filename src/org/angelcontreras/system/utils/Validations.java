@@ -33,6 +33,35 @@ public class Validations {
     }
 
     public Boolean validateEmail (String email){
+        int dotCount = 0;
+        int arrobeCount = 0;
+        
+        //VALIDA LA EXISTAENCIA DE PUNTOS CONSECUTIVOS
+        for (int index = 0; index < email.length(); index++){
+            if(email.charAt(index)== '.')
+                dotCount++;
+            if(dotCount>1)
+                
+                return false;
+                
+            }
+        
+        //VALIDA LA EXISTENCIA DE SOLO UN UNICO ARROBA
+        for (int index = 0; index < email.length(); index++){
+            if(email.charAt(index)== '@')
+                arrobeCount++;
+            
+                
+            }
+        if(arrobeCount != 1 )
+                
+                return false;
         return true;
+        
+        }
+    
+    
     }
-}
+    
+    
+

@@ -19,10 +19,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .form-register TextField,
 .form-register PasswordField {
-   -fx-border-color: skyblue;
-   -fx-border-wifth: 2px;
-   -fx-border-radius: 5px;
-   -fx-background-color: white;
+    -fx-border-color: skyblue;
+    -fx-border-wifth: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-color: white;
 }
 
 

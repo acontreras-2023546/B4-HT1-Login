@@ -53,8 +53,7 @@ public class ViewFactory {
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
                     scene = loadFileFXML("RegisterView.fxml", 400, 500);
                 }
-                
-                
+
                 default ->
                     scene = loadFileFXML("LoginView.fxml", 400, 500);
             }

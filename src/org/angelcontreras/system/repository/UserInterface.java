@@ -9,6 +9,8 @@ package org.angelcontreras.system.repository;
  * @author informatica
  */
 import org.angelcontreras.system.model.Users;
+
 public interface UserInterface {
-    void create (Users users);
+
+    void create(Users users);
 }
