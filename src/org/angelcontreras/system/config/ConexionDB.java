@@ -23,8 +23,9 @@ public class ConexionDB {
             
         } catch (ClassNotFoundException classNotFound) {
             System.out.println("Error de clase no encontrada");
-        }catch (SQLException sqlException){
-            System.out.println("Error de conexion sql");
+        } catch (SQLException sqlException) {
+    System.out.println("ERROR REAL DE CONEXION SQL:");
+    sqlException.printStackTrace();
         }catch (Exception e){
             System.out.println("Error padre "+ e.getMessage());
         }
