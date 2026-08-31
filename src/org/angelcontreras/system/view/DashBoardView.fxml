@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.angelcontreras.system.controller.DashBoardController">
+    
+    <!-- TOP: Encabezado -->
+    <top>
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #378ee4; -fx-padding: 20;" text="Sistema de Auditoría - Menú Principal" BorderPane.alignment="CENTER" />
+    </top>
+
+    <!-- LEFT: Navegación lateral -->
+    <left>
+        <VBox prefHeight="500.0" prefWidth="200.0" spacing="15.0" style="-fx-background-color: #f4f4f4; -fx-padding: 20;" BorderPane.alignment="CENTER">
+            <Button fx:id="btnInicio" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onInicio" styleClass="campo" text="Inicio" />
+            <Button fx:id="btnPerfil" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPerfil" styleClass="campo" text="Perfil" />
+            <Button fx:id="btnConfig" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onConfiguracion" styleClass="campo" text="Configuración" />
+            <!-- Botón crítico de Cerrar Sesión -->
+            <Button fx:id="btnLogout" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onLogout" style="-fx-background-color: #fa5e14; -fx-text-fill: white;" text="Cerrar Sesión" />
+        </VBox>
+    </left>
+
+    <!-- CENTER: Área vacía para futuros formularios -->
+    <center>
+        <StackPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <Label style="-fx-text-fill: #aaaaaa;" text="Área de trabajo (Cargar formularios aquí)" />
+        </StackPane>
+    </center>
+</BorderPane>

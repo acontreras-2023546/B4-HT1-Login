@@ -21,9 +21,9 @@ import org.angelcontreras.system.utils.ViewFactory;
  *
  * @author angel
  */
-public class RegisterController implements Initializable{
+public class RegisterController implements Initializable {
 
-        @FXML
+    @FXML
     private TextField txtUser;
     @FXML
     private TextField txtName;
@@ -112,13 +112,12 @@ public class RegisterController implements Initializable{
         // 7. Mostrar el resultado al usuario
         switch (status) {
             case ERROR_USER_CREATE -> {
-                System.out.println("Error al crear en la base de datos");
-                alertInfo.viewAlert(3, "Error de Registro", "No se pudo crear el usuario en la base de datos", "Registro");
+                alertInfo.viewAlert(3, "Error de Registro", "No se pudo crear el usuario", "Registro");
             }
             case USER_CREATED -> {
-                System.out.println("Sí se creó el usuario");
                 alertInfo.viewAlert(1, "Éxito", "Usuario registrado correctamente", "Registro");
-                // Opcional: Aquí podrías limpiar los campos o cerrar la ventana
+                ViewFactory viewFacto = new ViewFactory(); // ✅ Declarar aquí
+                viewFacto.viewLogin();
             }
             case FIELDS_EMPTY -> {
                 // Esto no debería llegar aquí porque ya lo validamos arriba, pero por seguridad:
@@ -131,6 +130,9 @@ public class RegisterController implements Initializable{
                 System.out.println("Estado desconocido");
                 alertInfo.viewAlert(3, "Error Desconocido", "Ocurrió un error inesperado", "Registro");
             }
+
         }
+
     }
+
 }

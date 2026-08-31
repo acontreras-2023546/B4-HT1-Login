@@ -53,6 +53,11 @@ public class ViewFactory {
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
                     scene = loadFileFXML("RegisterView.fxml", 400, 500);
                 }
+                case "main" -> {
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setTitle("MENÚ PRINCIPAL");
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(true); // El dashboard suele ser redimensionable
+                    scene = loadFileFXML("DashBoardView.fxml", 800, 600);
+                }
                 default ->
                     scene = loadFileFXML("LoginView.fxml", 400, 500);
             }
