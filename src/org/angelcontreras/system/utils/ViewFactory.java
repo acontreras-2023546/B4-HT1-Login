@@ -23,10 +23,8 @@ public class ViewFactory {
     public Scene loadFileFXML(String nameFXML, int width, int height) {
         String pathOfFile = PATH_VIEWS + nameFXML;
         try {
-            //FXMLLoader
             FXMLLoader loaderFXML = new FXMLLoader();
 
-            //Leer la URL del archivo
             URL urlFile = ClasePrincipal.class.getResource(pathOfFile);
             loaderFXML.setBuilderFactory(new JavaFXBuilderFactory());
             loaderFXML.setLocation(urlFile);
@@ -48,6 +46,16 @@ public class ViewFactory {
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
                     scene = loadFileFXML("LoginView.fxml", 400, 500);
                 }
+                case "register" -> {
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setTitle("REGISTRO DE USUARIO");
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
+                    scene = loadFileFXML("RegisterView.fxml", 400, 500);
+                }
+                case "main" -> {
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setTitle("MENÚ PRINCIPAL");
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(true); // El dashboard suele ser redimensionable
+                    scene = loadFileFXML("DashBoardView.fxml", 800, 600);
+                }
                 default ->
                     scene = loadFileFXML("LoginView.fxml", 400, 500);
             }
@@ -60,6 +68,10 @@ public class ViewFactory {
 
     public void viewLogin() {
         loadScene("login");
+    }
+
+     public void viewRegister() {
+        loadScene("register");
     }
 
 }

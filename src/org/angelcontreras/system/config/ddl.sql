@@ -28,3 +28,5 @@ Delimiter $$
     end$$
 delimiter ; 
 
+
+select * from Users;

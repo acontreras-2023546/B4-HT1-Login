@@ -1,0 +1,27 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30 ago 2026, 22:13:16
+    Author     : angel
+*/
+
+.topLabel {
+    -fx-font-size: 30px;
+    -fx-text-fill: #8ca0ce;
+    -fx-font-family: "IMPACT";
+
+}
+
+.campo {
+    -fx-text-fill: #8c41db;
+    -fx-border-width: 2px;
+    -fx-border-color: #ff0000;
+}
+
+.barraLateral {
+    -fx-background-color: #5b5b6e;
+    -fx-padding: 15px;
+
+}

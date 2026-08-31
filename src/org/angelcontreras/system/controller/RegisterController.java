@@ -1,0 +1,124 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package org.angelcontreras.system.controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import org.angelcontreras.system.service.UserService;
+import org.angelcontreras.system.service.UserStatus;
+import org.angelcontreras.system.utils.AlertInformation;
+import org.angelcontreras.system.utils.Validations;
+import org.angelcontreras.system.utils.ViewFactory;
+
+/**
+ *
+ * @author angel
+ */
+public class RegisterController implements Initializable {
+
+    @FXML
+    private TextField txtUser;
+    @FXML
+    private TextField txtName;
+    @FXML
+    private TextField txtLastName;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private PasswordField pwdPassword;
+    @FXML
+    private PasswordField pwdConfirmPassword;
+
+    private Validations validate = new Validations();
+    private AlertInformation alertInfo = new AlertInformation();
+    private UserService userService = new UserService();
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {}
+
+    @FXML
+    public void onCancel(MouseEvent event) {
+        ViewFactory viewFacto = new ViewFactory();
+        viewFacto.viewLogin();
+    }
+
+    @FXML
+    public void onCreateUser(MouseEvent event) {
+        boolean isValidEmail = validate.validateEmail(txtEmail.getText().trim());
+        if (!isValidEmail) {
+            alertInfo.viewAlert(1, "Error de Email", "Has ingresado un email incorrecto", "Validación");
+            return;
+        }
+
+        String user = txtUser.getText().trim();
+        String name = txtName.getText().trim();
+        String lastName = txtLastName.getText().trim();
+        String email = txtEmail.getText().trim();
+        String password = pwdPassword.getText().trim();
+        String confirmPassword = pwdConfirmPassword.getText().trim();
+
+        if (validate.emptyText(user) || validate.emptyText(name)
+                || validate.emptyText(lastName) || validate.emptyText(email)
+                || validate.emptyText(password) || validate.emptyText(confirmPassword)) {
+
+            alertInfo.viewAlert(3, "Campos Vacíos", "Dejó campos vacíos en el formulario", "Validación");
+            return;
+        }
+
+        String msgField = "";
+        if (!validate.validateLengthText(user, 25)) {
+            msgField = "El campo USUARIO no puede superar los 25 caracteres.";
+        } else if (!validate.validateLengthText(name, 50)) {
+            msgField = "El campo NOMBRE no puede superar los 50 caracteres.";
+        } else if (!validate.validateLengthText(lastName, 50)) {
+            msgField = "El campo APELLIDO no puede superar los 50 caracteres.";
+        } else if (!validate.validateLengthText(email, 50)) {
+            msgField = "El campo EMAIL no puede superar los 50 caracteres.";
+        } else if (!validate.validateLengthText(password, 35)) {
+            msgField = "El campo PASSWORD no puede superar los 35 caracteres.";
+        }
+
+        if (!msgField.isEmpty()) {
+            alertInfo.viewAlert(3, "Longitud Inválida", msgField, "Validación");
+            return;
+        }
+
+        if (!validate.equalsText(password, confirmPassword)) {
+            alertInfo.viewAlert(3, "Error de Contraseña", "Sus contraseñas no coinciden", "Validación");
+            return;
+        }
+
+        UserStatus status = userService.createUser(user, name, lastName, email, password);
+
+        switch (status) {
+            case ERROR_USER_CREATE -> {
+                alertInfo.viewAlert(3, "Error de Registro", "No se pudo crear el usuario", "Registro");
+            }
+            case USER_CREATED -> {
+                alertInfo.viewAlert(1, "Éxito", "Usuario registrado correctamente", "Registro");
+                ViewFactory viewFacto = new ViewFactory(); // ✅ Declarar aquí
+                viewFacto.viewLogin();
+            }
+            case FIELDS_EMPTY -> {
+                alertInfo.viewAlert(2, "Campos Vacíos", "Por favor complete todos los campos", "Registro");
+            }
+            case VALUE_LENGTH_INVALID -> {
+                alertInfo.viewAlert(2, "Longitud Inválida", "Verifique la longitud de los datos ingresados", "Registro");
+            }
+            default -> {
+                System.out.println("Estado desconocido");
+                alertInfo.viewAlert(3, "Error Desconocido", "Ocurrió un error inesperado", "Registro");
+            }
+
+        }
+
+    }
+
+}
