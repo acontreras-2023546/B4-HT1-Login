@@ -41,9 +41,7 @@ public class RegisterController implements Initializable {
     private UserService userService = new UserService();
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // Inicialización si es necesaria
-    }
+    public void initialize(URL url, ResourceBundle rb) {}
 
     @FXML
     public void onCancel(MouseEvent event) {
@@ -53,15 +51,12 @@ public class RegisterController implements Initializable {
 
     @FXML
     public void onCreateUser(MouseEvent event) {
-        // 1. Validar email
         boolean isValidEmail = validate.validateEmail(txtEmail.getText().trim());
         if (!isValidEmail) {
-            // ✅ CORREGIDO: "ERROR" en lugar del número 1
             alertInfo.viewAlert(1, "Error de Email", "Has ingresado un email incorrecto", "Validación");
             return;
         }
 
-        // 2. Obtener datos
         String user = txtUser.getText().trim();
         String name = txtName.getText().trim();
         String lastName = txtLastName.getText().trim();
@@ -69,17 +64,14 @@ public class RegisterController implements Initializable {
         String password = pwdPassword.getText().trim();
         String confirmPassword = pwdConfirmPassword.getText().trim();
 
-        // 3. Validar campos vacíos
         if (validate.emptyText(user) || validate.emptyText(name)
                 || validate.emptyText(lastName) || validate.emptyText(email)
                 || validate.emptyText(password) || validate.emptyText(confirmPassword)) {
 
-            // ✅ CORREGIDO: "ERROR" en lugar del número 3
             alertInfo.viewAlert(3, "Campos Vacíos", "Dejó campos vacíos en el formulario", "Validación");
             return;
         }
 
-        // 4. Validar longitudes (usando else if para que solo muestre el primer error)
         String msgField = "";
         if (!validate.validateLengthText(user, 25)) {
             msgField = "El campo USUARIO no puede superar los 25 caracteres.";
@@ -94,22 +86,17 @@ public class RegisterController implements Initializable {
         }
 
         if (!msgField.isEmpty()) {
-            // ✅ CORREGIDO: "WARNING" en lugar del número 3
             alertInfo.viewAlert(3, "Longitud Inválida", msgField, "Validación");
             return;
         }
 
-        // 5. Validar que las contraseñas coincidan
         if (!validate.equalsText(password, confirmPassword)) {
-            // ✅ CORREGIDO: "ERROR" en lugar del número 3
             alertInfo.viewAlert(3, "Error de Contraseña", "Sus contraseñas no coinciden", "Validación");
             return;
         }
 
-        // 6. Intentar crear el usuario en la base de datos
         UserStatus status = userService.createUser(user, name, lastName, email, password);
 
-        // 7. Mostrar el resultado al usuario
         switch (status) {
             case ERROR_USER_CREATE -> {
                 alertInfo.viewAlert(3, "Error de Registro", "No se pudo crear el usuario", "Registro");
@@ -120,7 +107,6 @@ public class RegisterController implements Initializable {
                 viewFacto.viewLogin();
             }
             case FIELDS_EMPTY -> {
-                // Esto no debería llegar aquí porque ya lo validamos arriba, pero por seguridad:
                 alertInfo.viewAlert(2, "Campos Vacíos", "Por favor complete todos los campos", "Registro");
             }
             case VALUE_LENGTH_INVALID -> {

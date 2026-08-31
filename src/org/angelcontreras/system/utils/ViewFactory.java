@@ -23,10 +23,8 @@ public class ViewFactory {
     public Scene loadFileFXML(String nameFXML, int width, int height) {
         String pathOfFile = PATH_VIEWS + nameFXML;
         try {
-            //FXMLLoader
             FXMLLoader loaderFXML = new FXMLLoader();
 
-            //Leer la URL del archivo
             URL urlFile = ClasePrincipal.class.getResource(pathOfFile);
             loaderFXML.setBuilderFactory(new JavaFXBuilderFactory());
             loaderFXML.setLocation(urlFile);

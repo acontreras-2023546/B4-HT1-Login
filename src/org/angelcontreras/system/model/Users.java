@@ -8,6 +8,7 @@ package org.angelcontreras.system.model;
  *
  * @author informatica
  */
+
 public class Users {
     private String name;
     private String lastname; 

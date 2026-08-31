@@ -29,7 +29,6 @@ public class AlertInformation {
      * @param mensaje     El mensaje principal o contenido de la alerta
      */
     public void viewAlert(int tipoAlerta, String titulo, String encabezado, String mensaje) {
-        // Variable local de tipo AlertType
         AlertType tipo = switch (tipoAlerta) {
             case 1 -> AlertType.INFORMATION;
             case 2 -> AlertType.WARNING;
@@ -39,13 +38,11 @@ public class AlertInformation {
             default -> AlertType.INFORMATION;
         };
 
-        // Creación y configuración de la alerta
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
         alert.setHeaderText(encabezado);
         alert.setContentText(mensaje);
         
-        // Mostrar la alerta y esperar a que el usuario la cierre
         alert.showAndWait();
     }
 }
